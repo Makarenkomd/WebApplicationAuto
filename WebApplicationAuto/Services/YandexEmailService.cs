@@ -5,8 +5,16 @@ using System.Threading.Tasks;
 
 namespace WebApplicationAuto.Services
 {
-    public class YandexEmailService:EmailSender
+    public class YandexEmailService : IEmailSender
     {
+        public string getText()
+        {
+            return "yandex";
+        }
 
+        public Task SendEmailAsync(string email, string subject, string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

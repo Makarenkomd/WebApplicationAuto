@@ -5,13 +5,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationAuto.Models;
+using WebApplicationAuto.Services;
 
 namespace WebApplicationAuto.Controllers
 {
     public class HomeController : Controller
     {
+        IEmailSender ml;
+
+        public HomeController(IEmailSender ml)
+        {
+            this.ml = ml;    
+        }
         public IActionResult Index()
         {
+            ViewBag.textEmail = ml.getText();
             return View();
         }
 
